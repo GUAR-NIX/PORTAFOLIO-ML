@@ -1,3 +1,5 @@
+🇪🇸 **Español** · 🇬🇧 [English (summary)](README.en.md)
+
 # 🎬 ¿Qué película ver ahora? Recomendador sobre MovieLens 25M
 
 Sistema de recomendación de películas entrenado con **25 millones de calificaciones** de 162 mil usuarios (MovieLens 25M, 1995 → 2019). Combina **filtrado colaborativo implícito (ALS)**, un **modelo de contenido** con géneros y el **Tag Genome** (1.128 etiquetas por película) y la **popularidad reciente** en un híbrido que se adapta a cuánta historia tiene cada usuario. Se evalúa como en la vida real, con una **partición temporal global** (entrenar con el pasado, predecir lo que cada usuario vio después) y **por segmento de usuario**, incluidos los **usuarios nuevos** (arranque en frío). Incluye **API FastAPI**, **app Streamlit**, 3 notebooks ejecutados y ficha del modelo.

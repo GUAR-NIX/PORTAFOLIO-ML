@@ -1,3 +1,5 @@
+🇪🇸 **Español** · 🇬🇧 [English (summary)](README.en.md)
+
 # 🛰️ Uso de suelo con Sentinel-2 (EuroSAT): índices espectrales vs. Transfer Learning en CPU
 
 **Datos:** 27.000 escenas de EuroSAT RGB en sus particiones oficiales: **16.200 de entrenamiento · 5.400 de validación · 5.400 de prueba**.

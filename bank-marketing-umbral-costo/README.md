@@ -1,3 +1,5 @@
+🇪🇸 **Español** · 🇬🇧 [English (summary)](README.en.md)
+
 # 📞 ¿A quién llamar? Campaña de depósitos a plazo con ML
 
 Modelo que decide **a qué clientes debe llamar un banco** para ofrecer un depósito a plazo, con la probabilidad **calibrada** de que acepten y un **umbral elegido por costo/beneficio** de cada llamada. Datos reales de telemercadeo de un banco portugués (UCI Bank Marketing, **41 mil clientes**, 2008–2010, solo 11 % acepta). Incluye el tratamiento de la **fuga de información** de `duration`, la comparación **pesos vs. remuestreo** para el desbalance, **SHAP**, una **prueba de estrés temporal** y una **API FastAPI**.

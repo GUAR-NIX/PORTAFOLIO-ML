@@ -157,7 +157,9 @@ def readme(c: dict) -> str:
     caidas = [int(n) for n in lgbm_pe.index if n > (cruces["LightGBM con pesos"]["primer_n"] or 0) and lgbm_pe[n] <= res["pocas_etiquetas"]["auprc_referencia"]]
     ejemplo = _ejemplo_api(muestra)
 
-    return f"""# 💳 Detección de fraude con tarjetas: anomalías no supervisadas frente a modelos supervisados
+    return f"""🇪🇸 **Español** · 🇬🇧 [English (summary)](README.en.md)
+
+# 💳 Detección de fraude con tarjetas: anomalías no supervisadas frente a modelos supervisados
 
 **Datos:** {num(datos['filas'], 0)} transacciones reales de titulares europeos (ULB / Worldline, dos días de septiembre de 2013), con **{datos['fraudes']} fraudes ({pct(datos['tasa_fraude_pct'], 2)})**.
 

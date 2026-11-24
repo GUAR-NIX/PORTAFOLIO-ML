@@ -1,3 +1,5 @@
+🇪🇸 **Español** · 🇬🇧 [English (summary)](README.en.md)
+
 # 🚲 ¿Cuántas bicis saldrán de cada estación mañana? Pronóstico de demanda por estación y hora (Citi Bike + clima)
 
 Citi Bike mueve decenas de miles de bicicletas al día y cada noche hay que **rebalancear**: llevar bicis a las estaciones que se vaciarán en las horas pico de mañana. Para decidirlo hace falta saber, **la noche anterior**, cuántas **salidas** tendrá cada estación en cada hora del día siguiente. Entreno un **modelo global LightGBM** con los **44,3 millones de viajes de Citi Bike de 2024**, agregados a las **250 estaciones más activas × 8 784 horas** (2 196 000 filas), con rezagos de demanda, calendario, feriados y **clima horario de Open-Meteo**. Lo valido con **backtesting de origen móvil** y en un **test final de 28 días nunca visto**, y traduzco el pronóstico en **alertas de rebalanceo con un análisis de costos explícito**.

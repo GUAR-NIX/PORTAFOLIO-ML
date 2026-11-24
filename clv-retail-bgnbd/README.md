@@ -1,3 +1,5 @@
+🇪🇸 **Español** · 🇬🇧 [English (summary)](README.en.md)
+
 # 💎 ¿Quién sigue vivo y cuánto vale? CLV y retención en retail (BG/NBD + Gamma-Gamma)
 
 Sistema probabilístico que estima **qué clientes siguen activos**, **cuántas veces comprarán**, **cuál será su ticket medio** y **a quién conviene rescatar** en un comercio minorista donde el abandono ocurre en silencio. Evaluado sobre **UCI Online Retail II** (**1,07 millones de líneas**, 2009–2011, tienda británica de regalos y hogar) con una partición temporal estricta (**18 meses de calibración → 6 meses de prueba nunca vistos**). Incluye auditoría de limpieza contable, formulación exacta por máxima verosimilitud de **BG/NBD** y **Gamma-Gamma** (Fader, Hardie & Lee, 2005), comparación con **heurísticas RFM** y **LightGBM supervisado** (con intervalos bootstrap), **validación de las campañas de rescate con el gasto real del periodo de prueba**, una **API FastAPI** y una **app Streamlit**.

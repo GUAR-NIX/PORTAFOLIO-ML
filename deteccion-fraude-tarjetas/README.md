@@ -1,3 +1,5 @@
+🇪🇸 **Español** · 🇬🇧 [English (summary)](README.en.md)
+
 # 💳 Detección de fraude con tarjetas: anomalías no supervisadas frente a modelos supervisados
 
 **Datos:** 284.807 transacciones reales de titulares europeos (ULB / Worldline, dos días de septiembre de 2013), con **492 fraudes (0,17 %)**.
