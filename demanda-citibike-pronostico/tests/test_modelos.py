@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import numpy as np
-import pandas as pd
 
 from demanda_citibike.features import COLS_CATEGORICAS, FEATURES, construir_caracteristicas
 from demanda_citibike.modelos import entrenar_lgbm, predecir_linea_base_estacional, predecir_linea_base_media

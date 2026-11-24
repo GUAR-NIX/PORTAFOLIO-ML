@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 import lightgbm as lgb
 
-from demanda_citibike.config import CUANTILES, MODELOS
+from demanda_citibike.config import CUANTILES
 
 PARAMS_LGBM = {
     "objective": "regression",

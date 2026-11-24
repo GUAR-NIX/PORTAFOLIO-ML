@@ -1,6 +1,6 @@
 """Las cifras del README y de la ficha salen de reports/ (no se escriben a mano).
 
-1. README.md y MODEL_CARD.md son exactamente lo que genera scripts/generar_readme.py con los reports actuales.
+1. README.es.md y MODEL_CARD.md son exactamente lo que genera scripts/generar_readme.py con los reports actuales.
 2. Las cifras clave aparecen con el formato del texto y se recalculan desde las predicciones guardadas.
 3. Higiene: sin rutas personales, sin enlaces a otras carpetas, LICENSE MIT y guía con ≥ 8 preguntas.
 """
@@ -26,7 +26,7 @@ def gen():
 
 @pytest.fixture(scope="module")
 def readme() -> str:
-    return (RAIZ_PROYECTO / "README.md").read_text(encoding="utf-8")
+    return (RAIZ_PROYECTO / "README.es.md").read_text(encoding="utf-8")
 
 
 @pytest.fixture(scope="module")
@@ -36,7 +36,7 @@ def ficha() -> str:
 
 def test_readme_y_ficha_estan_al_dia(gen, readme, ficha) -> None:
     c = gen.cargar()
-    assert readme == gen.readme(c), "README.md desactualizado: ejecuta python scripts/generar_readme.py"
+    assert readme == gen.readme(c), "README.es.md desactualizado: ejecuta python scripts/generar_readme.py"
     assert ficha == gen.model_card(c), "MODEL_CARD.md desactualizado: ejecuta python scripts/generar_readme.py"
 
 

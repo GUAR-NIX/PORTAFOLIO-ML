@@ -12,7 +12,6 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from . import config as C
 from . import modelos as Mo
 from .datos import Particion
 from .evaluacion import evaluar

@@ -1,7 +1,7 @@
 """Las cifras clave del README y la ficha deben salir de reports/ (no escritas a mano).
 
 1. Las métricas de reports/resultados.json se recalculan desde las predicciones guardadas.
-2. Las cifras principales aparecen en README.md y MODEL_CARD.md con el formato del texto.
+2. Las cifras principales aparecen en README.es.md y MODEL_CARD.md con el formato del texto.
 """
 from __future__ import annotations
 
@@ -44,7 +44,7 @@ def pred() -> pd.DataFrame:
 
 @pytest.fixture(scope="module")
 def readme() -> str:
-    return (RAIZ / "README.md").read_text(encoding="utf-8")
+    return (RAIZ / "README.es.md").read_text(encoding="utf-8")
 
 
 @pytest.mark.parametrize("col", ["pred_dia", "pred_dia_sin_clima", "pred_1h", "base_estacional", "base_ayer", "base_media"])

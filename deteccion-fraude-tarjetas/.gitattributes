@@ -1,0 +1,2 @@
+# LightGBM guarda desplazamientos en bytes: si Git cambia los finales de linea, el modelo no se puede cargar.
+models/*.txt -text

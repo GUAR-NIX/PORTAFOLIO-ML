@@ -1,7 +1,6 @@
 """Pruebas de backtesting: partición temporal estricta (sin fuga)."""
 from __future__ import annotations
 
-import pandas as pd
 
 from demanda_citibike.features import construir_caracteristicas
 from demanda_citibike.backtesting import ejecutar_backtesting

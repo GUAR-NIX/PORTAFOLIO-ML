@@ -172,7 +172,6 @@ def curvas_captura_ingreso(
 ) -> pd.DataFrame:
     """Calcula la curva de Lorenz / ganancia acumulada de ingreso real en holdout para cada modelo."""
     y_ingreso = df_eval["gasto_holdout_acotado"].to_numpy(dtype=float)
-    total = max(float(np.sum(y_ingreso)), 1.0)
     fracciones = np.linspace(0.0, 1.0, n_puntos + 1)
 
     filas = []

@@ -1,7 +1,7 @@
 """Las cifras clave del README y de la ficha deben salir de reports/ (no escritas a mano).
 
 1. Las métricas de reports/resultados.json se recalculan desde las predicciones de prueba guardadas.
-2. Las cifras principales aparecen en README.md y MODEL_CARD.md con el formato del texto.
+2. Las cifras principales aparecen en README.es.md y MODEL_CARD.md con el formato del texto.
 3. El README no usa bloques que GitHub no renderiza ni cifras viejas, y el análisis anual/permanente sale de las matrices de confusión.
 """
 
@@ -29,7 +29,7 @@ def _usd(x: float) -> str:
 
 @pytest.fixture(scope="module")
 def readme() -> str:
-    return (RAIZ_PROYECTO / "README.md").read_text(encoding="utf-8")
+    return (RAIZ_PROYECTO / "README.es.md").read_text(encoding="utf-8")
 
 
 @pytest.fixture(scope="module")
@@ -123,7 +123,7 @@ def test_ficha_coherente(resultados_json: dict, ficha: str) -> None:
 def test_sin_rutas_personales_en_entregables() -> None:
     patron = re.compile("|".join([r"C:\\\\?Users", "/c/" + "Users", "gua" + "rn"]), re.IGNORECASE)
     rutas = list((RAIZ_PROYECTO / "notebooks").glob("*.ipynb")) + [
-        RAIZ_PROYECTO / "README.md",
+        RAIZ_PROYECTO / "README.es.md",
         RAIZ_PROYECTO / "MODEL_CARD.md",
         RAIZ_PROYECTO / "docs" / "GUIA_PASO_A_PASO.md",
         DIR_REPORTES / "resultados.json",

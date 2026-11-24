@@ -15,7 +15,7 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import precision_recall_curve
 
-from fraude.config import DIR_FIGURAS, DIR_REPORTES, ETIQUETAS, FAMILIA
+from fraude.config import DIR_FIGURAS, DIR_REPORTES, ETIQUETAS
 
 # Paleta categórica de referencia, asignada por familia (orden fijo) y tintas neutras para texto/ejes
 COLOR_FAMILIA = {"Línea base": "#8a8985", "No supervisado": "#eb6834", "Supervisado": "#2a78d6", "Híbrido": "#1baf7a"}

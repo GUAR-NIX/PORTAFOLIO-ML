@@ -106,7 +106,7 @@ def main() -> dict:
     for metodo in ["platt", "isotonica"]:
         calib_cmp[metodo] = brier_score_loss(y, ev.calibrar_fuera_de_pliegue(p_oof, y, metodo))
     metodo_cal = min(["platt", "isotonica"], key=calib_cmp.get)
-    print(f"  Brier fuera de pliegue: " + " · ".join(f"{k} {v:.5f}" for k, v in calib_cmp.items())
+    print("  Brier fuera de pliegue: " + " · ".join(f"{k} {v:.5f}" for k, v in calib_cmp.items())
           + f" → {metodo_cal}")
     p_oof_cal = ev.calibrar_fuera_de_pliegue(p_oof, y, metodo_cal)
     umbral = ev.umbral_optimo(y, p_oof_cal)

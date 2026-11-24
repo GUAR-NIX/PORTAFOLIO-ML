@@ -1,37 +1,50 @@
-🇪🇸 **Español** · 🇬🇧 [English](README.en.md)
+🇺🇸 **English** · 🇪🇸 [Español](README.es.md)
 
-# Portafolio de Machine Learning
+# Machine learning with temporal validation and APIs
 
-Clasificación con costo, pronóstico, recomendación, valor de vida del cliente, visión por computadora y detección de fraude, con validación sin fuga, intervalos y APIs.
+Six projects on public data with confidence intervals, explicit baselines and tested FastAPI services.
 
-**Herramientas principales:** scikit-learn · LightGBM · PyTorch · SHAP · FastAPI
+| Project | Measured result | Code | Tests |
+|---|---|---|---|
+| [Cost-based calling threshold](bank-marketing-umbral-costo/README.md) | AUC **0.815** on a stratified split and **0.704** under a temporal stress test; both reported | [code](bank-marketing-umbral-costo/src/campana) | [tests](bank-marketing-umbral-costo/tests) |
+| [Customer lifetime value](clv-retail-bgnbd/README.md) | Repurchase AUC **0.810** vs. 0.800 for LightGBM; portfolio revenue error −10.0% | [code](clv-retail-bgnbd/src/clv) | [tests](clv-retail-bgnbd/tests) |
+| [Demand forecast by station and hour](demanda-citibike-pronostico/README.md) | WAPE **50.6%** vs. 72.9% for the seasonal baseline, 24 h ahead | [code](demanda-citibike-pronostico/src/demanda_citibike) | [tests](demanda-citibike-pronostico/tests) |
+| [Card fraud detection](deteccion-fraude-tarjetas/README.md) | AUPRC **0.782** [0.682; 0.865] for the served model; best unsupervised 0.489 | [code](deteccion-fraude-tarjetas/src/fraude) | [tests](deteccion-fraude-tarjetas/tests) |
+| [Land use from satellite images](eurosat-uso-de-suelo/README.md) | **96.98%** accuracy on 5,400 unseen scenes, trained on CPU | [code](eurosat-uso-de-suelo/src/eurosat_suelo) | [tests](eurosat-uso-de-suelo/tests) |
+| [Movie recommender](recomendador-movielens/README.md) | NDCG@10 **0.166** vs. 0.125 for recent popularity; ties with EASE | [code](recomendador-movielens/src/recomendador) | [tests](recomendador-movielens/tests) |
 
-Cada carpeta es un proyecto independiente, con su propio README (resultados primero), guía paso a paso, pruebas automáticas y cómo reproducirlo. Los datos crudos no se versionan: cada proyecto trae un script que los descarga desde la fuente oficial.
+## Start here
 
-## Proyectos
-
-| Proyecto | De qué trata |
+| If you are looking for… | Go to |
 |---|---|
-| [**📞 ¿A quién llamar? Campaña de depósitos a plazo con ML**](bank-marketing-umbral-costo/) | Modelo que decide a qué clientes debe llamar un banco para ofrecer un depósito a plazo, con la probabilidad calibrada de que acepten y un umbral elegido por costo/beneficio de cada llamada. Datos reales de telemercadeo de un… |
-| [**💎 ¿Quién sigue vivo y cuánto vale? CLV y retención en retail (BG/NBD + Gamma-Gamma)**](clv-retail-bgnbd/) | Sistema probabilístico que estima qué clientes siguen activos, cuántas veces comprarán, cuál será su ticket medio y a quién conviene rescatar en un comercio minorista donde el abandono ocurre en silencio. Evaluado sobre UCI… |
-| [**🚲 ¿Cuántas bicis saldrán de cada estación mañana? Pronóstico de demanda por estación y hora (Citi Bike + clima)**](demanda-citibike-pronostico/) | Citi Bike mueve decenas de miles de bicicletas al día y cada noche hay que rebalancear: llevar bicis a las estaciones que se vaciarán en las horas pico de mañana. Para decidirlo hace falta saber, la noche anterior, cuántas… |
-| [**💳 Detección de fraude con tarjetas: anomalías no supervisadas frente a modelos supervisados**](deteccion-fraude-tarjetas/) | Datos: 284.807 transacciones reales de titulares europeos (ULB / Worldline, dos días de septiembre de 2013), con 492 fraudes (0,17 %). |
-| [**🛰️ Uso de suelo con Sentinel-2 (EuroSAT): índices espectrales vs. Transfer Learning en CPU**](eurosat-uso-de-suelo/) | Datos: 27.000 escenas de EuroSAT RGB en sus particiones oficiales: 16.200 de entrenamiento · 5.400 de validación · 5.400 de prueba. |
-| [**🎬 ¿Qué película ver ahora? Recomendador sobre MovieLens 25M**](recomendador-movielens/) | Sistema de recomendación de películas entrenado con 25 millones de calificaciones de 162 mil usuarios (MovieLens 25M, 1995 → 2019). Combina filtrado colaborativo implícito (ALS), un modelo de contenido con géneros y el Tag Genome… |
+| **A model behind an API** | [Card fraud detection](deteccion-fraude-tarjetas/README.md) · [API code](deteccion-fraude-tarjetas/api) |
+| **Validation discipline** | [Cost-based threshold](bank-marketing-umbral-costo/README.md): the temporal test that lowers the headline figure |
+| **How it is checked** | [CI workflow](.github/workflows/ci.yml): Ruff, Markdown links and the tests of the six projects, including their APIs |
+| **Design and decisions** | The full README of each project (Spanish) has the architecture, limits and reproduction commands |
 
-## Cómo usar este repositorio
+## How results were measured
+
+- Temporal splits for customer value, demand, fraud and recommendations; the bank campaign reports a stratified and a temporal test.
+- Tuning on validation data and reporting on a test set.
+- 95% confidence intervals and paired bootstrap for differences between models.
+- Cost figures use assumptions that each project states.
+- Data are public and historical; nothing here serves real users.
+
+## How to use this repository
 
 ```bash
-git clone https://github.com/GUAR-NIX/portafolio-ml.git
-cd portafolio-ml/<proyecto>
+git clone https://github.com/GUAR-NIX/PORTAFOLIO-ML.git
+cd PORTAFOLIO-ML/<project>
 ```
 
-Dentro de cada proyecto, sigue la sección «Cómo reproducir» de su README y `docs/GUIA_PASO_A_PASO.md`.
+Each project has its own README, tests and `docs/GUIA_PASO_A_PASO.md` (Spanish). Raw data are not versioned: a script gets them from
+the official source. The English page of each project is a summary; the full documentation is in Spanish.
+See [CONTRIBUTING.md](CONTRIBUTING.md) to run the checks.
 
-## Autor
+## Author
 
-**Erick Guarnizo** · [LinkedIn](https://www.linkedin.com/in/erick-g-571a7b3b4)
+**Erick Guarnizo** · [LinkedIn](https://www.linkedin.com/in/erick-g-571a7b3b4) · [GitHub profile](https://github.com/GUAR-NIX)
 
-## Licencia
+## License
 
-El código está bajo licencia [MIT](LICENSE). Los datos de cada proyecto conservan la licencia de su fuente, indicada en su README.
+Code is under the [MIT](LICENSE) license. Each project's data keep the license of their source, stated in its README.

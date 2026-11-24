@@ -16,7 +16,6 @@ import joblib
 import numpy as np
 import pandas as pd
 import torch
-from scipy.special import softmax
 from sklearn.metrics import accuracy_score, confusion_matrix, f1_score, log_loss
 
 from eurosat_suelo.config import (

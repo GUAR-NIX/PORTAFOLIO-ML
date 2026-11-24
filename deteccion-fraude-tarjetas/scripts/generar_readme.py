@@ -1,4 +1,4 @@
-"""Genera README.md y MODEL_CARD.md a partir de reports/ (ninguna cifra se escribe a mano).
+"""Genera README.es.md y MODEL_CARD.md a partir de reports/ (ninguna cifra se escribe a mano).
 
 Uso:  python scripts/generar_readme.py
 La prueba tests/test_readme_cifras.py comprueba que las cifras de ambos archivos salen de reports/.
@@ -139,7 +139,7 @@ def readme(c: dict) -> str:
     cruces = res["pocas_etiquetas"]["n_fraudes_para_superar"]
     pe = c["pe"].set_index(["modelo", "n_fraudes"])
     sens1 = c["sens"][c["sens"]["fraccion_perdida"] == 1.0].set_index(["costo_revision_eur", "modelo"])
-    cr_min, cr_max = sens1.index.get_level_values(0).min(), sens1.index.get_level_values(0).max()
+    cr_max = sens1.index.get_level_values(0).max()
     adv = res["deriva"]["adversaria"]
     der = c["der"]
     shap_top = c["shap"].sort_values("shap_medio_abs_fraudes", ascending=False).head(3)["variable"].tolist()
@@ -157,7 +157,7 @@ def readme(c: dict) -> str:
     caidas = [int(n) for n in lgbm_pe.index if n > (cruces["LightGBM con pesos"]["primer_n"] or 0) and lgbm_pe[n] <= res["pocas_etiquetas"]["auprc_referencia"]]
     ejemplo = _ejemplo_api(muestra)
 
-    return f"""🇪🇸 **Español** · 🇬🇧 [English (summary)](README.en.md)
+    return f"""🇪🇸 **Español** · 🇺🇸 [English (summary)](README.md)
 
 # 💳 Detección de fraude con tarjetas: anomalías no supervisadas frente a modelos supervisados
 
@@ -333,7 +333,7 @@ python -m fraude.entrenar          # entrena ({num(ent['segundos_entrenamiento']
 python -m fraude.evaluar           # solo evaluación desde reports/predicciones_*.parquet (~3 min)
 python -m fraude.graficos          # figuras de reports/figures/
 python scripts/generar_notebooks.py
-python scripts/generar_readme.py   # README.md y MODEL_CARD.md desde reports/
+python scripts/generar_readme.py   # README.es.md y MODEL_CARD.md desde reports/
 pytest -q -p no:cacheprovider
 ```
 
@@ -427,9 +427,9 @@ def model_card(c: dict) -> str:
 
 def main() -> None:
     c = cargar()
-    (RAIZ / "README.md").write_text(readme(c), encoding="utf-8")
+    (RAIZ / "README.es.md").write_text(readme(c), encoding="utf-8")
     (RAIZ / "MODEL_CARD.md").write_text(model_card(c), encoding="utf-8")
-    print("[ok] README.md y MODEL_CARD.md generados desde reports/")
+    print("[ok] README.es.md y MODEL_CARD.md generados desde reports/")
 
 
 if __name__ == "__main__":
