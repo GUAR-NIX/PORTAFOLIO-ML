@@ -2,6 +2,8 @@
 
 # Machine learning with temporal validation and APIs
 
+[![CI](https://github.com/GUAR-NIX/PORTAFOLIO-ML/actions/workflows/ci.yml/badge.svg)](https://github.com/GUAR-NIX/PORTAFOLIO-ML/actions/workflows/ci.yml)
+
 Six projects on public data with confidence intervals, explicit baselines and tested FastAPI services.
 
 | Project | Measured result | Code | Tests |
